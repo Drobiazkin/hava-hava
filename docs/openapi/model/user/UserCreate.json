@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "javaType": "Url",
+  "type": "object",
+  "title": "User",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "name"
+    },
+    "nickname": {
+      "type": "string",
+      "title": "nickname"
+    }
+  }
+}

@@ -1,0 +1,121 @@
+openapi: "3.0.3"
+info:
+  title: Request for User
+  version: 1.0.0
+  description: OpenAPI Specification for User
+
+servers:
+  - url: /
+
+paths:
+  /user/{id}:
+    get:
+      tags:
+        - User
+      description: Получение пользователя по комментарию
+      operationId: get-by-user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: id
+      responses:
+        200:
+          description: Успешинй ответ
+          content:
+            application/json:
+              schema:
+                $ref: 'model/user/User.json'
+        404:
+          description: Not Found
+        400:
+          description: Bad Request
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+
+  /user/delete/{id}:
+    delete:
+      tags:
+        - User
+      description: Удаление User
+      operationId: delete
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Идентификатор пользователя
+      responses:
+        204:
+          description: Успешный ответ
+        404:
+          description: Not Found
+        400:
+          description: Bad Request
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+
+  /user/create:
+    post:
+      tags:
+        - User
+      description: Создание пользователя
+      operationId: create
+      requestBody:
+        description: Request create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'model/user/UserCreate.json'
+      responses:
+        201:
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: 'model/user/User.json'
+        404:
+          description: Not Found
+        400:
+          description: Bad Request
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+
+  /user/update:
+    put:
+      tags:
+        - User
+      description: Обновление пльзователя
+      operationId: update
+      requestBody:
+        description: Request update
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'model/user/User.json'
+      responses:
+        200:
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: 'model/user/User.json'
+        404:
+          description: Not Found
+        400:
+          description: Bad Request
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
